@@ -1,0 +1,35 @@
+{
+    "name": "couqi-ai-tts-devcontainer",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "tts",
+    "remoteUser": "ubuntu",
+    "initializeCommand": "",
+    "postCreateCommand": "",
+    "postAttachCommand": "",
+    "updateContentCommand": "",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "ms-python.python",
+                "tamasfe.even-better-toml",
+                "charliermarsh.ruff",
+                "streetsidesoftware.code-spell-checker",
+                "njpwerner.autodocstring",
+                "github.vscode-github-actions",
+                "donjayamanne.githistory",
+                "Gruntfuggly.todo-tree",
+                "maptz.regionfolder",
+                "bierner.markdown-preview-github-styles",
+                "DavidAnson.vscode-markdownlint",
+                "darkriszty.markdown-table-prettify",
+                "foxundermoon.shell-format",
+                "mhutchie.git-graph"
+            ]
+        }
+    }
+}

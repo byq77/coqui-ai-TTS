@@ -1,0 +1,31 @@
+services:
+  tts:
+    build:
+      context: ..
+      dockerfile: dockerfiles/Dockerfile.dev2
+      tags:
+        - tts-server:dev
+      target: dev
+      args:
+        - BASE=nvidia/cuda:12.6.3-base-ubuntu24.04
+        - USERNAME=ubuntu
+        - WORKSPACE=/app  
+    container_name: tts-server-dev
+    ports:
+      - "5002:5002"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+    volumes:
+      - ../:/app
+    runtime: nvidia
+    ipc: host
+    stdin_open: true
+    tty: true
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+      - apparmor:unconfined
