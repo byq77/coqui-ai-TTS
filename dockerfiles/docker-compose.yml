@@ -1,0 +1,24 @@
+services:
+  tts-server:
+    build:
+      context: ..
+      dockerfile: dockerfiles/Dockerfile.dev2
+      tags:
+        - tts-server:latest
+      target: app
+      args:
+        - BASE=nvidia/cuda:12.6.3-base-ubuntu24.04
+        - USERNAME=ubuntu
+        - WORKSPACE=/app  
+    container_name: tts-server
+    command: ["tts-server", "--model_name", "tts_models/en/vctk/vits", "--use_cuda"]
+    ports:
+      - "5002:5002"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+    runtime: nvidia
+    stdin_open: true
+    tty: true
