@@ -74,8 +74,10 @@
                 <input id="speaker_wav" placeholder="path/to/speaker.wav" name="speaker_wav" accept=".wav"><br /><br />
                 {%endif%}
 
-                <textarea id="text" placeholder="Type here..." rows="8" cols="120" name="text"></textarea>
-                <button id="speak-button" name="speak">Speak</button><br /><br />
+                <div style="text-align: center;">
+                    <textarea id="text" placeholder="Type here..." rows="8" cols="120" name="text"></textarea><br />
+                    <button id="speak-button" name="speak">Speak</button>
+                </div><br /><br />
 
                 {%if use_multi_speaker%}
                 Choose a speaker:
